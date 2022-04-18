@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,55 +8,77 @@
     <link rel="stylesheet" href="/assent/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="cal-main">
         <div id="cal-input">
-            <input type="text" id="output" placeholder="0">
+            <input type="text" id="output" placeholder="0" disabled>
         </div>
         <div id="cal-btn">
             <table>
                 <tr>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-lightgray cl-black" value="AC">AC</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-lightgray cl-black" value="-">+/-</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-lightgray cl-black" value="%">%</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-orange cl-white" value="/">/</button></td>
+                    <td><button onclick="Clear()" class="btn bg-c-lightgray cl-black">AC</button>
+                    </td>
+                    <td><button onclick="nagaPosiNumber()" class="btn bg-c-lightgray cl-black">+/-</button>
+                    </td>
+                    <td><button onclick="pacent()" class="btn bg-c-lightgray cl-black">%</button>
+                    </td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-orange cl-white" value="/">/</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="7">7</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="8">8</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="9">9</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-orange cl-white" value="*">X</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="7">7</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="8">8</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="9">9</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-orange cl-white" value="*">X</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="4">4</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="5">5</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="6">6</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-orange cl-white" value="-">-</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="4">4</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="5">5</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="6">6</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-orange cl-white" value="-">-</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="1">1</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="2">2</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value="3">3</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-orange cl-white" value="+">+</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="1">1</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="2">2</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value="3">3</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-orange cl-white" value="+">+</button></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button onclick="numbers(this.value)"  class="btn col-2 bg-c-gray cl-white" value="0">0</button>
+                        <button onclick="numbers(this.value)" class="btn col-2 bg-c-gray cl-white" value="0">0</button>
                     </td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-gray cl-white" value=",">,</button></td>
-                    <td><button onclick="numbers(this.value)"  class="btn bg-c-orange cl-white" value="=">=</button></td>
+                    <td><button onclick="numbers(this.value)" class="btn bg-c-gray cl-white" value=",">,</button></td>
+                    <td><button onclick="equal()" class="btn bg-c-orange cl-white" value="=">=</button></td>
                 </tr>
             </table>
         </div>
     </div>
 
     <script>
-        let outputScreen = document.getElementById('output');
-        
+        var outputScreen = document.getElementById('output');
+        var result = output.value
+
         function numbers(value) {
             outputScreen.value += value;
         }
 
+        function equal() {
+            outputScreen.value = eval(outputScreen.value);
+        }
+
+        function Clear() {
+            outputScreen.value = "";
+        }
+
+        function nagaPosiNumber() {
+            outputScreen.value = outputScreen.value * (-1);
+        }
+
+        function pacent() {
+            outputScreen.value = outputScreen.value / 100;
+        }
+
     </script>
 </body>
+
 </html>
