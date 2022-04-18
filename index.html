@@ -56,7 +56,7 @@
 
     <script>
         var outputScreen = document.getElementById('output');
-        var result = output.value
+        var result = outputScreen.value
 
         function numbers(value) {
             outputScreen.value += value;
@@ -76,6 +76,10 @@
 
         function pacent() {
             outputScreen.value = outputScreen.value / 100;
+        }
+
+        function del() {
+            outputScreen.value = outputScreen.value.substring(0, outputScreen.value.length - 1);
         }
 
     </script>
